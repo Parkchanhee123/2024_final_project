@@ -12,6 +12,8 @@ public class MainController {
     @RequestMapping("/")
     public String main(Model model) {
         log.info("Started Main");
+        model.addAttribute("left", "left");
+        model.addAttribute("center", "center");
         return "index";
     }
 }
