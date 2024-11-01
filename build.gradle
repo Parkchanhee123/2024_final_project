@@ -67,9 +67,9 @@ dependencies {
     // pageing
     implementation 'com.github.pagehelper:pagehelper-spring-boot-starter:1.4.6'
 
-    // 패스워드 보안
-    implementation 'org.springframework.boot:spring-boot-starter-security'
-    testImplementation 'org.springframework.security:spring-security-test'
+//    // 패스워드 보안
+//    implementation 'org.springframework.boot:spring-boot-starter-security'
+//    testImplementation 'org.springframework.security:spring-security-test'
 
 
     // test
