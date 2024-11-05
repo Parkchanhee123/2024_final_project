@@ -16,4 +16,12 @@ public class MainController {
         model.addAttribute("center", "center");
         return "index";
     }
+
+    @RequestMapping("/login")
+    public String login(Model model) {
+        log.info("Started login");
+        model.addAttribute("left", "left");
+        model.addAttribute("center", "login");
+        return "index";
+    }
 }
