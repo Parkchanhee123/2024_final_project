@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.sm.app.repository.NoticeRepository">
+
+
+    <select id="selectOne" parameterType="Integer" resultType="NoticeDto">
+        SELECT * FROM notice WHERE user_id=#{userId}
+    </select>
+    <select id="select" resultType="NoticeDto">
+        SELECT * FROM notice
+    </select>
+    <insert id="insert" parameterType="NoticeDto">
+        INSERT INTO notice VALUES (#{noticeId},#{adminId},#{noticeName},#{noticeDetail},SYSDATE())
+    </insert>
+    <update id="update" parameterType="NoticeDto">
+        UPDATE notice SET notice_name=#{noticeName},notice_detail=#{noticeDatail} WHERE notice_id=#{noticeId}
+    </update>
+    <delete id="delete" parameterType="Integer">
+        DELETE FROM notice WHERE notice_id=#{noticeId}
+    </delete>
+
+</mapper>
