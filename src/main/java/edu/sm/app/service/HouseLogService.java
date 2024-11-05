@@ -31,7 +31,7 @@ public class HouseLogService implements SBService<Integer, HouseLogDto> {
 
     @Override
     public HouseLogDto get(Integer integer) throws Exception {
-        return houseLogRepository.selectOn(integer);
+        return houseLogRepository.selectOne(integer);
     }
 
     @Override

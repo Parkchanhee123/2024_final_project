@@ -36,6 +36,7 @@ public class MainInputController {
             if (pwd.equals(usersDto.getUserPwd())) {
                 // 로그인 성공
                 session.setAttribute("loginid", usersDto);
+                log.info(usersDto.toString());
                 return "redirect:/";  // 로그인 후 홈으로 리다이렉트
             } else {
                 // 로그인 실패: 비밀번호 불일치

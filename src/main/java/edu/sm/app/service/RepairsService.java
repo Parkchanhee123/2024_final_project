@@ -33,7 +33,7 @@ public class RepairsService  implements SBService<Integer, RepairsDto> {
 
     @Override
     public RepairsDto get(Integer integer) throws Exception {
-        return repairsRepository.selectOn(integer);
+        return repairsRepository.selectOne(integer);
     }
 
     @Override

@@ -32,7 +32,7 @@ public class ContractService implements SBService<Integer, ContractDto> {
 
     @Override
     public ContractDto get(Integer integer) throws Exception {
-        return contractRepository.selectOn(integer);
+        return contractRepository.selectOne(integer);
     }
 
     @Override

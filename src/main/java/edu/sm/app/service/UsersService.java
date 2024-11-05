@@ -31,7 +31,7 @@ public class UsersService implements SBService<String, UsersDto> {
 
     @Override
     public UsersDto get(String s) throws Exception {
-        return usersRepository.selectOn(s);
+        return usersRepository.selectOne(s);
     }
 
     @Override

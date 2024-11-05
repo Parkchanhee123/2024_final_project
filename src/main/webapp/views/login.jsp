@@ -13,13 +13,18 @@
     <link href="https://demos.creative-tim.com/argon-dashboard-pro/assets/css/nucleo-svg.css" rel="stylesheet"/>
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <!-- jQuery CDN 추가 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRkBsu0Ml5l4Klp2aKBu6pNFz9I7O07Ksr/6Ak3zx" crossorigin="anonymous"></script>
     <!-- CSS Files -->
     <link id="pagestyle" href="<c:url value='/css/argon-dashboard.css?v=2.1.0'/>" rel="stylesheet"/>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <script>
     let login = {
-
         init: function () {
             $('#login_form > button').click(() => {
                 this.check();
@@ -31,7 +36,6 @@
                 }
             });
         },
-
 
         check: function () {
             let id = $('#id').val();
@@ -71,7 +75,7 @@
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg blur border-radius-lg top-0 z-index-3 shadow position-absolute mt-4 py-2 start-0 end-0 mx-4">
                 <div class="container-fluid">
-                    <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="../pages/dashboard.html">
+                    <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="<c:url value="/"/> ">
                         <img src="img/gunamul2.jpeg" style="width: 50px">
                         건어물
                     </a>
@@ -134,7 +138,8 @@
                                 <p class="mb-0">Enter your ID and password to sign in</p>
                             </div>
                             <div class="card-body">
-                                <!-- 로그인 오류 메시지 출력 -->
+
+                                <!-- 에러 메시지 출력 -->
                                 <c:if test="${not empty errorMessage}">
                                     <div class="alert alert-danger" role="alert">
                                             ${errorMessage}
@@ -144,15 +149,11 @@
                                 <form id="login_form">
                                     <div class="form-group">
                                         <label for="id">id: </label>
-                                        <input type="text" class="form-control" placeholder="Enter id" id="id" name="id"
-                                               value="id33">
+                                        <input type="text" class="form-control" placeholder="Enter id" id="id" name="id" value="user01">
                                     </div>
-                                    <%-- value는 그냥 기본값 넣어주는거--%>
                                     <div class="form-group">
                                         <label for="pwd">Password:</label>
-                                        <input type="password" class="form-control" placeholder="Enter password"
-                                               id="pwd" name="pwd"
-                                               value="pwd33">
+                                        <input type="password" class="form-control" placeholder="Enter password" id="pwd" name="pwd" value="password1">
                                     </div>
                                     <button type="button" class="btn btn-primary">Submit</button>
                                 </form>
@@ -163,8 +164,7 @@
                             <div class="card-footer text-center pt-0 px-lg-2 px-1">
                                 <p class="mb-4 text-sm mx-auto">
                                     Don't have an account?
-                                    <a href="javascript:;" class="text-primary text-gradient font-weight-bold">Sign
-                                        up</a>
+                                    <a href="javascript:;" class="text-primary text-gradient font-weight-bold">Sign up</a>
                                 </p>
                             </div>
                         </div>
@@ -176,10 +176,8 @@
                              style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signin-ill.jpg');
                                     background-size: cover;">
                             <span class="mask bg-gradient-primary opacity-6"></span>
-                            <h4 class="mt-5 text-white font-weight-bolder position-relative">"Attention is the new
-                                currency"</h4>
-                            <p class="text-white position-relative">The more effortless the writing looks, the more
-                                effort the writer actually put into the process.</p>
+                            <h4 class="mt-5 text-white font-weight-bolder position-relative">"Attention is the new currency"</h4>
+                            <p class="text-white position-relative">The more effortless the writing looks, the more effort the writer actually put into the process.</p>
                         </div>
                     </div>
 
