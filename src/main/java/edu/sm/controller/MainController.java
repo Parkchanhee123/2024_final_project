@@ -22,4 +22,11 @@ public class MainController {
         log.info("Started login");
         return "login";
     }
+
+    @RequestMapping("/additional-info")
+    public String additional(Model model) {
+        return "additional-info";
+    }
+
+
 }
