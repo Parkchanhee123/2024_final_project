@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -55,4 +56,26 @@ public class MainInputController {
         }
     }
 
+    @PostMapping("/additionalimpl")
+    public String additionalimpl(HttpSession session, UsersDto usersDto, Model model) throws Exception {
+        log.info("Received additional info: userPwd={}, userTel={}, userMail={}", usersDto.getUserPwd(), usersDto.getUserTel(), usersDto.getUserMail());
+        UsersDto sessionUser = (UsersDto) session.getAttribute("loginid");
+
+        if (sessionUser == null) {
+            return "redirect:/login";
+        }
+
+        usersDto.setUserId(sessionUser.getUserId());
+        usersService.updateAdditionalInfo(usersDto);
+
+        session.setAttribute("loginid", usersDto);
+
+        return "redirect:/";
+    }
+
+    @RequestMapping("/registerimpl")
+    public String registerimpl(Model model, UsersDto usersDto) throws Exception {
+        usersService.add(usersDto);
+        return "redirect:/login";
+    }
 }
