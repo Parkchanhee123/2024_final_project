@@ -163,7 +163,7 @@
 
                                     <div class="form-group">
                                         <label for="tel">전화번호: </label>
-                                        <input type="number" class="form-control" placeholder="Enter tel" id="tel" name="userTel">
+                                        <input type="text" class="form-control" placeholder="Enter tel" id="tel" name="userTel">
                                     </div>
 
                                     <div class="form-group">

@@ -1,3 +1,9 @@
+<%--
+  User: 1
+  Date: 2024-11-01
+  Time: 오후 1:56
+--%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%-- 부트스트랩 아이콘 링크 추가 --%>
@@ -49,7 +55,7 @@
 <html>
 <body>
 <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 "
-       id="sidenav-main">
+     id="sidenav-main">
     <div class="sidenav-header">
         <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
            aria-hidden="true" id="iconSidenav"></i>
@@ -99,11 +105,10 @@
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="../pages/billing.html">사전정산</a></li>
-                    <li><a class="dropdown-item" href="../pages/availability.html">주차 가능 여부</a></li>
+                    <li><a class="dropdown-item" href="<c:url value="/park"/>">주차 가능 여부</a></li>
                 </ul>
             </li>
-
-        <%-- 공지사항 및 아이콘 추가 --%>
+            <%--공지사항 및 아이콘 추가--%>
             <li class="nav-item">
                 <a class="nav-link" href="../pages/virtual-reality.html">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -113,6 +118,15 @@
                 </a>
             </li>
 
+
+            <li class="nav-item">
+                <a class="nav-link " href="../pages/rtl.html">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-world-2 text-dark text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">RTL</span>
+                </a>
+            </li>
             <li class="nav-item mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">회원</h6>
             </li>
@@ -165,3 +179,4 @@
     </div>
 </aside>
 </body>
+</html>
