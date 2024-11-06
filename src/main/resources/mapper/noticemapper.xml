@@ -6,7 +6,7 @@
 
 
     <select id="selectOne" parameterType="Integer" resultType="NoticeDto">
-        SELECT * FROM notice WHERE user_id=#{userId}
+        SELECT * FROM notice WHERE notice_id=#{noticeId}
     </select>
     <select id="select" resultType="NoticeDto">
         SELECT * FROM notice

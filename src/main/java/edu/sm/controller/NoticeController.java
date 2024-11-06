@@ -44,4 +44,15 @@ public class NoticeController {
         model.addAttribute("center", "notice/notice");
         return "index";
     }
+
+    @RequestMapping("/detail")
+    public String detail(Model model, @RequestParam("id") int id) throws Exception {
+        NoticeDto noticeDto = null;
+        noticeDto = noticeService.get(id);
+
+        model.addAttribute("notice", noticeDto);
+        model.addAttribute("center", "notice/detail");
+
+        return "index";
+    }
 }

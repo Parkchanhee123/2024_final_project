@@ -39,12 +39,12 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach var="notice" items="${cpage.list}">
+                        <c:forEach var="n" items="${cpage.list}">
                             <tr>
-                                <td>${notice.noticeId}</td>
-                                <td>${notice.noticeName}</td>
-                                <td>${notice.noticeTime}</td>
-                                <td>${notice.adminId}</td>
+                                <td><a href="/notice/detail?id=${n.noticeId}">${n.noticeId}</a>
+                                <td>${n.noticeName}</td>
+                                <td>${n.noticeTime}</td>
+                                <td>${n.adminId}</td>
                             </tr>
                         </c:forEach>
                         </tbody>
