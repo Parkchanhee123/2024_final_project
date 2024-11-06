@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -78,4 +79,30 @@ public class MainInputController {
         usersService.add(usersDto);
         return "redirect:/login";
     }
+
+    @RequestMapping("/updateimpl")
+    public String updateUserInfo(UsersDto updatedUser, HttpSession session, Model model) throws Exception {
+        UsersDto sessionUser = (UsersDto) session.getAttribute("loginid");
+
+        if (sessionUser == null) {
+            return "redirect:/login";
+        }
+
+        updatedUser.setUserId(sessionUser.getUserId());
+        usersService.modify(updatedUser);
+        session.setAttribute("loginid", updatedUser);
+
+        model.addAttribute("user", updatedUser);
+        model.addAttribute("center", "mypage");
+
+        return "index";
+    }
+
+    @RequestMapping("/deleteimpl")
+    public String deleteUser(@RequestParam("id") String id, HttpSession session) throws Exception {
+        usersService.del(id);
+        session.invalidate();
+        return "redirect:/";
+    }
+
 }
