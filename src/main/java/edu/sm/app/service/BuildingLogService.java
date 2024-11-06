@@ -31,7 +31,7 @@ public class BuildingLogService implements SBService<Integer, BuildingLogDto> {
 
     @Override
     public BuildingLogDto get(Integer integer) throws Exception {
-        return buildingLogRepository.selectOn(integer);
+        return buildingLogRepository.selectOne(integer);
     }
 
     @Override

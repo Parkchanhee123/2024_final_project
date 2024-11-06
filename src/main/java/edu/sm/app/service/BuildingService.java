@@ -31,7 +31,7 @@ public class BuildingService implements SBService<String, BuildingDto> {
 
     @Override
     public BuildingDto get(String s) throws Exception {
-        return buildingRepository.selectOn(s);
+        return buildingRepository.selectOne(s);
     }
 
     @Override

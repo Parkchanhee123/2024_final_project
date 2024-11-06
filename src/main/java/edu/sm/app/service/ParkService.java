@@ -32,7 +32,7 @@ public class ParkService implements SBService<Integer, ParkDto> {
 
     @Override
     public ParkDto get(Integer integer) throws Exception {
-        return parkRepository.selectOn(integer);
+        return parkRepository.selectOne(integer);
     }
 
     @Override
