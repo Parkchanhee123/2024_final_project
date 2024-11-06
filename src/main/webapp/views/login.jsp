@@ -94,27 +94,28 @@
                                 <a class="nav-link d-flex align-items-center me-2 active" aria-current="page"
                                    href="<c:url value="/"/> ">
                                     <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
-                                    Dashboard
+                                    메인 페이지
                                 </a>
                             </li>
+<%--                            <li class="nav-item">--%>
+<%--                                <a class="nav-link me-2" href="#">--%>
+<%--                                    <i class="fa fa-user opacity-6 text-dark me-1"></i>--%>
+<%--                                    버튼1--%>
+<%--                                </a>--%>
+<%--                            </li>--%>
                             <li class="nav-item">
-                                <a class="nav-link me-2" href="#">
-                                    <i class="fa fa-user opacity-6 text-dark me-1"></i>
-                                    버튼1
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link me-2" href="#">
-                                    <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
-                                    버튼2
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link me-2" href="#">
+                                <a class="nav-link me-2" href="/login">
                                     <i class="fas fa-key opacity-6 text-dark me-1"></i>
-                                    버튼3
+                                    로그인
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link me-2" href="/register">
+                                    <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
+                                    회원가입
+                                </a>
+                            </li>
+
                         </ul>
                     </div>
                 </div>

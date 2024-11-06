@@ -1,6 +1,9 @@
 package edu.sm.app.service;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import edu.sm.app.dto.NoticeDto;
+import edu.sm.app.dto.Search;
 import edu.sm.app.dto.UsersDto;
 import edu.sm.app.frame.SBService;
 import edu.sm.app.repository.NoticeRepository;
@@ -38,5 +41,17 @@ public class NoticeService implements SBService<Integer, NoticeDto> {
     @Override
     public List<NoticeDto> get() throws Exception {
         return noticeRepository.select();
+    }
+
+    // 공지사항 기본 목록 가져오기 (페이징)
+    public List<NoticeDto> getNoticePage(int pageNo) {
+        PageHelper.startPage(pageNo, 5); // 페이지 당 10개의 항목 표시
+        return noticeRepository.getNoticePage();
+    }
+
+    // 검색 결과 가져오기 (페이징)
+    public List<NoticeDto> getFindPage(int pageNo, Search search) {
+        PageHelper.startPage(pageNo, 5); // 페이지 당 10개의 항목 표시
+        return noticeRepository.getFindPage(search);
     }
 }
