@@ -5,10 +5,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>추가 정보 입력</title>
     <!-- Fonts and icons -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet"/>
-    <!-- Nucleo Icons -->
     <link href="https://demos.creative-tim.com/argon-dashboard-pro/assets/css/nucleo-icons.css" rel="stylesheet"/>
     <link href="https://demos.creative-tim.com/argon-dashboard-pro/assets/css/nucleo-svg.css" rel="stylesheet"/>
     <!-- Font Awesome Icons -->
@@ -17,7 +16,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRkBsu0Ml5l4Klp2aKBu6pNFz9I7O07Ksr/6Ak3zx" crossorigin="anonymous"></script>
     <!-- CSS Files -->
     <link id="pagestyle" href="<c:url value='/css/argon-dashboard.css?v=2.1.0'/>" rel="stylesheet"/>
-
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -27,6 +25,7 @@
     let login = {
         init: function () {
             $('#login_form > button').click(() => {
+                console.log("Submit button clicked");  // 버튼 클릭 확인용 로그
                 this.check();
             });
             // Enter 키 눌렀을 때 폼 제출되도록 추가
@@ -38,25 +37,34 @@
         },
 
         check: function () {
-            let id = $('#id').val();
             let pwd = $('#pwd').val();
-            if (id == '' || id == null) {
-                alert('id is mandatory');
-                $('#id').focus();
-                return;
-            }
+            let tel = $('#tel').val();
+            let mail = $('#mail').val();
+
             if (pwd == '' || pwd == null) {
                 alert('pwd is mandatory');
                 $('#pwd').focus();
+                return;
+            }
+
+            if (tel == '' || tel == null) {
+                alert('tel is mandatory');
+                $('#tel').focus();
+                return;
+            }
+
+            if (mail == '' || mail == null) {
+                alert('mail is mandatory');
+                $('#mail').focus();
                 return;
             }
             this.send();
         },
 
         send: function () {
-            // method, action
+            console.log("Submitting form");  // 폼 전송 확인용 로그
             $('#login_form').attr('method', 'post');
-            $('#login_form').attr('action', '/loginimpl');
+            $('#login_form').attr('action', '/registerimpl');
             $('#login_form').submit();
         }
     };
@@ -124,7 +132,7 @@
     </div>
 </div>
 
-<!-- 로그인 폼 -->
+<!-- 추가 정보 입력 폼 -->
 <main class="main-content mt-0">
     <section>
         <div class="page-header min-vh-100">
@@ -134,8 +142,8 @@
                     <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
                         <div class="card card-plain">
                             <div class="card-header pb-0 text-start">
-                                <h4 class="font-weight-bolder">Sign In</h4>
-                                <p class="mb-0">Enter your ID and password to sign in</p>
+                                <h4 class="font-weight-bolder">추가 정보 입력</h4>
+                                <p class="mb-0" style="font-size: 14px">회원 가입을 마무리 하기 위해 추가 정보를 입력해주세요</p>
                             </div>
                             <div class="card-body">
 
@@ -146,26 +154,34 @@
                                     </div>
                                 </c:if>
 
-                                <form id="login_form">
+                                <form id="login_form" method="post" action="/additionalimpl">
                                     <div class="form-group">
-                                        <label for="id">id: </label>
-                                        <input type="text" class="form-control" placeholder="Enter id" id="id" name="id" value="user01">
+                                        <label for="id">아이디:</label>
+                                        <input type="text" class="form-control" placeholder="Enter Id" id="id" name="userId">
                                     </div>
+
                                     <div class="form-group">
-                                        <label for="pwd">Password:</label>
-                                        <input type="password" class="form-control" placeholder="Enter password" id="pwd" name="pwd" value="password1">
+                                        <label for="pwd">비밀번호:</label>
+                                        <input type="password" class="form-control" placeholder="Enter password" id="pwd" name="userPwd">
                                     </div>
-                                    <button type="button" class="btn btn-primary">Submit</button>
+
+                                    <div class="form-group">
+                                        <label for="tel">전화번호: </label>
+                                        <input type="number" class="form-control" placeholder="Enter tel" id="tel" name="userTel">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="mail">이메일: </label>
+                                        <input type="email" class="form-control" placeholder="Enter mail" id="mail" name="userMail">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="name">이름: </label>
+                                        <input type="text" class="form-control" placeholder="Enter Name" id="name" name="userName">
+                                    </div>
+
+                                    <button type="button" onclick="login.send();" class="btn btn-primary">Submit</button>
                                 </form>
-                                <a href="<c:url value="/oauth/kakao"/> ">
-                                    <img src="<c:url value="/img/kakao_login_medium_narrow.png"/> ">
-                                </a>
-                            </div>
-                            <div class="card-footer text-center pt-0 px-lg-2 px-1">
-                                <p class="mb-4 text-sm mx-auto">
-                                    Don't have an account?
-                                    <a href="/register" class="text-primary text-gradient font-weight-bold">Sign up</a>
-                                </p>
                             </div>
                         </div>
                     </div>

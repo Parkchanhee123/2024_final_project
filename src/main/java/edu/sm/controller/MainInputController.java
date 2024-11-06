@@ -72,4 +72,10 @@ public class MainInputController {
 
         return "redirect:/";
     }
+
+    @RequestMapping("/registerimpl")
+    public String registerimpl(Model model, UsersDto usersDto) throws Exception {
+        usersService.add(usersDto);
+        return "redirect:/login";
+    }
 }

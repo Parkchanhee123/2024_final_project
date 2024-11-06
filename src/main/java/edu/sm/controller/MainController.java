@@ -23,6 +23,12 @@ public class MainController {
         return "login";
     }
 
+    @RequestMapping("/register")
+    public String register(Model model) {
+        log.info("Started register");
+        return "register";
+    }
+
     @RequestMapping("/additional-info")
     public String additional(Model model) {
         return "additional-info";
