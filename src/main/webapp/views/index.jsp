@@ -22,7 +22,8 @@
     <link id="pagestyle" href="<c:url value="/css/argon-dashboard.css?v=2.1.0"/> " rel="stylesheet"/>
 
     <%-- 카카오맵 api --%>
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0601f2c8782b31d6ed7ddf38b80dfbe8"></script>
+    <script type="text/javascript"
+            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0601f2c8782b31d6ed7ddf38b80dfbe8"></script>
 
     <%-- 웹소켓 라이브러리    --%>
     <script src="/webjars/sockjs-client/sockjs.min.js"></script>
@@ -71,20 +72,27 @@
                             </div>
                         </a>
                     </li>
-                    <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
-                        <a href="javascript:;" class="nav-link text-white p-0" id="iconNavbarSidenav">
-                            <div class="sidenav-toggler-inner">
-                                <i class="sidenav-toggler-line bg-white"></i>
-                                <i class="sidenav-toggler-line bg-white"></i>
-                                <i class="sidenav-toggler-line bg-white"></i>
-                            </div>
-                        </a>
-                    </li>                        <a href="<c:url value='/login'/>" class="nav-link text-white font-weight-bold px-0">
-                            <i class="fa fa-user me-sm-1"></i>
-                            <span class="d-sm-inline d-none">Sign In</span>
-                        </a>
+                    <!-- 사용자 로그인 상태 확인 -->
+                    <li class="nav-item d-flex align-items-center">
+                        <i class="fa fa-user me-sm-1"></i>
+                        <c:choose>
+                            <c:when test="${sessionScope.loginid == null}">
+                                <!-- 로그인되지 않은 경우 -->
+                                <a href="<c:url value='/login'/>" class="nav-link text-white font-weight-bold px-0">
+                                    <span class="d-sm-inline d-none">Sign In</span>
+                                </a>
+                            </c:when>
+                            <c:otherwise>
+                                <!-- 로그인된 경우 사용자 ID 및 Logout 표시 -->
+                                <span class="nav-link text-white font-weight-bold px-0">
+                                        ${sessionScope.loginid.userId}
+                                </span>
+                                <a class="nav-link text-white font-weight-bold px-0" href="<c:url value='/logoutimpl'/>" style="margin-left: 15px">
+                                    Logout
+                                </a>
+                            </c:otherwise>
+                        </c:choose>
                     </li>
-
                 </ul>
             </div>
         </div>

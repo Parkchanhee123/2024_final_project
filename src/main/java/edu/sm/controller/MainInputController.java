@@ -17,6 +17,16 @@ public class MainInputController {
 
     final UsersService usersService;
 
+    // 로그아웃 처리
+    @RequestMapping("/logoutimpl")
+    public String logoutimpl(HttpSession session, Model model) {
+        if (session != null) {
+            session.invalidate();
+
+        }
+        return "redirect:/";
+    }
+
     @RequestMapping("/loginimpl")
     public String loginimpl(Model model,
                             @RequestParam("id") String id,
@@ -28,16 +38,15 @@ public class MainInputController {
         UsersDto usersDto = usersService.get(id);
 
         if (usersDto == null) {
-            // 로그인 실패: 사용자 정보가 없을 경우
+            // 로그인 실패
             model.addAttribute("errorMessage", "ID가 존재하지 않습니다.");
             return "login";
         } else {
-            // 단순 문자열 비교로 비밀번호 검증
+            // 로그인 성공
             if (pwd.equals(usersDto.getUserPwd())) {
-                // 로그인 성공
                 session.setAttribute("loginid", usersDto);
                 log.info(usersDto.toString());
-                return "redirect:/";  // 로그인 후 홈으로 리다이렉트
+                return "redirect:/";
             } else {
                 // 로그인 실패: 비밀번호 불일치
                 model.addAttribute("errorMessage", "비밀번호가 일치하지 않습니다.");
