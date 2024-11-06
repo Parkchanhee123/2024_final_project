@@ -32,7 +32,7 @@ public class NoticeService implements SBService<Integer, NoticeDto> {
 
     @Override
     public NoticeDto get(Integer integer) throws Exception {
-        return noticeRepository.selectOn(integer);
+        return noticeRepository.selectOne(integer);
     }
 
     @Override
