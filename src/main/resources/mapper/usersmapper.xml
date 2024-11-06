@@ -15,10 +15,27 @@
         INSERT INTO users VALUES (#{userId},#{userPwd},#{userTel},#{userMail},#{userName},#{userPower},#{userFlag})
     </insert>
     <update id="update" parameterType="UsersDto">
-        UPDATE users SET user_pwd=#{userTel},user_tel=#{userTel},user_mail=#{userMail},user_name=#{userName},user_power=#{userPower},user_flag=#{userFlag} WHERE user_id=#{userId}
+        UPDATE users SET user_pwd=#{userPwd},user_tel=#{userTel},user_mail=#{userMail},user_name=#{userName},user_power=#{userPower},user_flag=#{userFlag} WHERE user_id=#{userId}
     </update>
     <delete id="delete" parameterType="String">
         DELETE FROM users WHERE user_id=#{userId}
     </delete>
+
+    <!-- 카카오 회원가입 -->
+    <insert id="insertKakaoUser" parameterType="edu.sm.app.dto.UsersDto">
+        INSERT INTO users (user_id, user_name)
+        VALUES (#{userId}, #{userName})
+    </insert>
+    <select id="findByKakaoId" parameterType="String" resultType="edu.sm.app.dto.UsersDto">
+        SELECT * FROM users WHERE user_id = #{kakaoId}
+    </select>
+    <update id="updateAdditionalInfo" parameterType="edu.sm.app.dto.UsersDto">
+        UPDATE users
+        SET
+            user_pwd = #{userPwd},
+            user_tel = #{userTel},
+            user_mail = #{userMail}
+        WHERE user_id = #{userId}
+    </update>
 
 </mapper>
