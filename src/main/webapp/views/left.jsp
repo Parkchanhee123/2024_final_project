@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css">
 
 
+
 <html>
 <body>
 <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 "
@@ -35,22 +36,37 @@
                     <span class="nav-link-text ms-1">Dashboard</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link " href="../pages/tables.html">
+
+            <div class="left-dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="energeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-calendar-grid-58 text-dark text-sm opacity-10"></i>
+                        <i class="bi bi-lightbulb text-dark text-sm opacity-10"></i> <!-- 에너지 관리 아이콘 -->
                     </div>
                     <span class="nav-link-text ms-1">에너지관리</span>
                 </a>
-<%--주차관리 및 아이콘 추가--%>
-            <li class="nav-item">
-                <a class="nav-link" href="../pages/billing.html">
+                <ul class="dropdown-menu" aria-labelledby="energyDropdown">
+                    <li><a class="dropdown-item" href="#">전기 관리</a></li>
+                    <li><a class="dropdown-item" href="#">물 관리</a></li>
+                    <li><a class="dropdown-item" href="#">가스 관리</a></li>
+                </ul>
+            </div>
+
+
+        <%--주차관리 및 아이콘 추가--%>
+            <div clas="left-dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="pakingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="bi bi-car-front-fill text-dark text-sm opacity-10"></i> <!-- 주차관리 아이콘 -->
                     </div>
                     <span class="nav-link-text ms-1">주차관리</span>
                 </a>
-            </li>
+                <ul class="dropdown-menu" aria-labelledby="energyDropdown">
+                    <li><a class="dropdown-item" href="#">주차 자리확인</a></li>
+                    <li><a class="dropdown-item" href="#">주차 정산</a></li>
+                </ul>
+            </div>
+
+
             <%--공지사항 및 아이콘 추가--%>
             <li class="nav-item">
                 <a class="nav-link" href="../pages/virtual-reality.html">
@@ -61,22 +77,14 @@
                 </a>
             </li>
 
-
-            <li class="nav-item">
-                <a class="nav-link " href="../pages/rtl.html">
-                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-world-2 text-dark text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">RTL</span>
-                </a>
-            </li>
             <li class="nav-item mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">회원</h6>
             </li>
             <li class="nav-item">
                 <a class="nav-link " href="<c:url value="/login"/> ">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-single-copy-04 text-dark text-sm opacity-10"></i>
+                        <i class="bi bi-box-arrow-left text-dark opacity-10" style="font-size: 1.2em; text-shadow: 1px 0 currentColor, -1px 0 currentColor, 0 1px currentColor, 0 -1px currentColor;"></i>
+
                     </div>
                     <span class="nav-link-text ms-1">로그인</span>
                 </a>
