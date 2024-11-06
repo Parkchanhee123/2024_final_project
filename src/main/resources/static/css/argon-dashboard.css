@@ -24619,7 +24619,10 @@ hr.horizontal.gray-light {
     padding: 1.5rem;
   }
 
-  .sidenav.fixed-start+.main-content {
+  /*.sidenav.fixed-start+.main-content {*/
+  /*  margin-left: 17.125rem;*/
+  /*}*/
+  .main-content{
     margin-left: 17.125rem;
   }
 
