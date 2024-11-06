@@ -6,6 +6,9 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--부트스트랩 아이콘 링크 추가--%>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css">
+
 
 <html>
 <body>
@@ -37,27 +40,30 @@
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-calendar-grid-58 text-dark text-sm opacity-10"></i>
                     </div>
-                    <span class="nav-link-text ms-1">Tables</span>
+                    <span class="nav-link-text ms-1">에너지관리</span>
                 </a>
-            </li>
+<%--주차관리 및 아이콘 추가--%>
             <li class="nav-item">
-                <a class="nav-link " href="../pages/billing.html">
+                <a class="nav-link" href="../pages/billing.html">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-credit-card text-dark text-sm opacity-10"></i>
+                        <i class="bi bi-car-front-fill text-dark text-sm opacity-10"></i> <!-- 주차관리 아이콘 -->
                     </div>
-                    <span class="nav-link-text ms-1">Billing</span>
+                    <span class="nav-link-text ms-1">주차관리</span>
                 </a>
             </li>
+            <%--공지사항 및 아이콘 추가--%>
             <li class="nav-item">
-                <a class="nav-link " href="../pages/virtual-reality.html">
+                <a class="nav-link" href="../pages/virtual-reality.html">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-app text-dark text-sm opacity-10"></i>
+                        <i class="bi bi-asterisk text-dark text-sm opacity-10"></i> <!-- 공지사항 아이콘 -->
                     </div>
-                    <span class="nav-link-text ms-1">Virtual Reality</span>
+                    <span class="nav-link-text ms-1">공지사항</span>
                 </a>
             </li>
+
+
             <li class="nav-item">
-                <a class="nav-link " href="<c:url value="/test"/>">
+                <a class="nav-link " href="../pages/rtl.html">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-world-2 text-dark text-sm opacity-10"></i>
                     </div>
@@ -65,22 +71,22 @@
                 </a>
             </li>
             <li class="nav-item mt-3">
-                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link " href="../pages/profile.html">
-                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Profile</span>
-                </a>
+                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">회원</h6>
             </li>
             <li class="nav-item">
                 <a class="nav-link " href="<c:url value="/login"/> ">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-single-copy-04 text-dark text-sm opacity-10"></i>
                     </div>
-                    <span class="nav-link-text ms-1">Sign In</span>
+                    <span class="nav-link-text ms-1">로그인</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="../pages/profile.html">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">회원가입</span>
                 </a>
             </li>
         </ul>
