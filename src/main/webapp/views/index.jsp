@@ -41,16 +41,17 @@
 </head>
 
 <body class="g-sidenav-show bg-gray-100">
-<div class="min-height-300 bg-dark position-absolute w-100"></div>
+<%--<div class="min-height-300 bg-dark position-absolute w-100" style="background-image: url('<c:url value="/img/bruce-mars.jpg"/>')"></div>--%>
+<div class="min-height-300 bg-dark position-absolute w-100" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/profile-layout-header.jpg'); background-position-y: 50%;">
+    <span class="mask bg-primary opacity-6"></span>
+</div>
 <main class="main-content position-relative border-radius-lg ">
     <!-- 상단 내비게이션 바 -->
-    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl " id="navbarBlur"
-         data-scroll="false">
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl " id="navbarBlur" data-scroll="false">
         <div class="container-fluid py-1 px-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                    <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Pages</a>
-                    </li>
+                    <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Pages</a></li>
                     <li class="breadcrumb-item text-sm text-white active" aria-current="page">Dashboard</li>
                 </ol>
                 <h6 class="font-weight-bolder text-white mb-0">Dashboard</h6>
@@ -102,7 +103,7 @@
     <div class="container-fluid" style="margin-top:30px">
         <div class="row">
             <!-- 사이드바 (왼쪽) -->
-            <div class="col-sm-3">
+            <div class="col-auto" style="max-width: 16.625rem;">
                 <c:choose>
                     <c:when test="${left == null}">
                         <jsp:include page="left.jsp"/>
@@ -114,17 +115,15 @@
             </div>
 
             <!-- center (오른쪽) -->
-            <div class="col-sm-9">
-                <div class="row" style="margin-top: 30px;">
-                    <c:choose>
-                        <c:when test="${center == null}">
-                            <jsp:include page="center.jsp"/>
-                        </c:when>
-                        <c:otherwise>
-                            <jsp:include page="${center}.jsp"/>
-                        </c:otherwise>
-                    </c:choose>
-                </div>
+            <div>
+                <c:choose>
+                    <c:when test="${center == null}">
+                        <jsp:include page="center.jsp"/>
+                    </c:when>
+                    <c:otherwise>
+                        <jsp:include page="${center}.jsp"/>
+                    </c:otherwise>
+                </c:choose>
             </div>
         </div>
     </div>
