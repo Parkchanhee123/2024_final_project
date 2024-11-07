@@ -82,7 +82,7 @@
                 </a>
 
                 <ul class="dropdown-menu" aria-labelledby="energyDropdown">
-                    <li><a class="dropdown-item" href="../pages/electricity.html">전기 관리</a></li>
+                    <li><a class="dropdown-item" href="../pages/electricity.html">전력 관리</a></li>
                     <li><a class="dropdown-item" href="../pages/water.html">물 관리</a></li>
                     <li><a class="dropdown-item" href="../pages/gas.html">가스 관리</a></li>
                 </ul>
@@ -103,9 +103,9 @@
                 </ul>
             </li>
 
-        <%-- 공지사항 및 아이콘 추가 --%>
+            <%-- 공지사항 및 아이콘 추가 --%>
             <li class="nav-item">
-                <a class="nav-link" href="../pages/virtual-reality.html">
+                <a class="nav-link" href="<c:url value="/notice"/> ">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="bi bi-asterisk text-dark text-sm opacity-10"></i> <!-- 공지사항 아이콘 -->
                     </div>
@@ -116,36 +116,44 @@
             <li class="nav-item mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">회원</h6>
             </li>
-
             <c:choose>
                 <c:when test="${sessionScope.loginid == null}">
-            <li class="nav-item">
-                <a class="nav-link " href="<c:url value="/login"/> ">
-                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="bi bi-box-arrow-left text-dark opacity-10"
-                           style="font-size: 1.2em; text-shadow: 1px 0 currentColor, -1px 0 currentColor, 0 1px currentColor, 0 -1px currentColor;"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">로그인</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link " href="../pages/profile.html">
-                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">회원가입</span>
-                </a>
-            </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link " href="<c:url value="/login"/> ">
+                            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="bi bi-box-arrow-left text-dark opacity-10"
+                                   style="font-size: 1.2em; text-shadow: 1px 0 currentColor, -1px 0 currentColor, 0 1px currentColor, 0 -1px currentColor;"></i>
+                            </div>
+                            <span class="nav-link-text ms-1">로그인</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="<c:url value="/register"/>">
+                            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                            </div>
+                            <span class="nav-link-text ms-1">회원가입</span>
+                        </a>
+                    </li>
                 </c:when>
                 <c:otherwise>
-            <li class="nav-item">
-                <a class="nav-link " href="<c:url value='/logoutimpl'/>">
-                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">로그아웃</span>
-                </a>
-            </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="<c:url value='/mypage'/>">
+                            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                            </div>
+                            <span class="nav-link-text ms-1">마이페이지</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="<c:url value='/logoutimpl'/>">
+                            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                            </div>
+                            <span class="nav-link-text ms-1">로그아웃</span>
+                        </a>
+                    </li>
                 </c:otherwise>
             </c:choose>
 

@@ -6,7 +6,7 @@
 
 
     <select id="selectOne" parameterType="Integer" resultType="NoticeDto">
-        SELECT * FROM notice WHERE user_id=#{userId}
+        SELECT * FROM notice WHERE notice_id=#{noticeId}
     </select>
     <select id="select" resultType="NoticeDto">
         SELECT * FROM notice
@@ -20,5 +20,34 @@
     <delete id="delete" parameterType="Integer">
         DELETE FROM notice WHERE notice_id=#{noticeId}
     </delete>
+
+    <!-- 공지사항 기본 목록 조회 -->
+    <select id="getNoticePage" resultType="edu.sm.app.dto.NoticeDto">
+        SELECT notice_id AS noticeId,
+               admin_id AS adminId,
+               notice_name AS noticeName,
+               notice_detail AS noticeDetail,
+               notice_time AS noticeTime
+        FROM notice
+        ORDER BY notice_time DESC
+    </select>
+
+    <!-- 검색 조건에 따른 공지사항 조회 -->
+    <select id="getFindPage" parameterType="edu.sm.app.dto.Search" resultType="edu.sm.app.dto.NoticeDto">
+        SELECT notice_id AS noticeId,
+        admin_id AS adminId,
+        notice_name AS noticeName,
+        notice_detail AS noticeDetail,
+        notice_time AS noticeTime
+        FROM notice
+        WHERE 1=1
+        <if test="keyword == 'name'">
+            AND notice_name LIKE CONCAT('%', #{search}, '%')
+        </if>
+        <if test="keyword == 'detail'">
+            AND notice_detail LIKE CONCAT('%', #{search}, '%')
+        </if>
+        ORDER BY notice_time DESC
+    </select>
 
 </mapper>
